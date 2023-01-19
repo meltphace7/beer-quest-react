@@ -1,0 +1,39 @@
+.brewery-list-item {
+    width: 100%;
+    height: 10rem;
+    background-color: rgb(244, 242, 242);
+    border-bottom: 2px solid rgb(155, 155, 155);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 9;
+}
+
+.brewery-list-item a{
+    text-decoration: none;
+    padding-top: 1rem;
+    width: 100%;
+    height: 100%;
+    padding-left: 3.2rem;
+    transition: all 200ms ease-in;
+}
+
+.brewery-list-item a:hover {
+  background-color: white;
+}
+
+.brewery-name {
+    font-size: 1.76rem;
+    color: orangered
+}
+
+.brewery-city {
+    font-size: 1.44rem;
+    color: rgb(87, 87, 87)
+}
+
+@media (max-width: 48em) {
+ .brewery-list-item {
+   justify-content: center;
+ }
+}

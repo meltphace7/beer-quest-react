@@ -1,0 +1,132 @@
+.nav {
+  width: 80%;
+  height: 12rem;
+  background-color: rgb(230, 229, 229);
+  color: white;
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-search {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo-container {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+  margin-left: 0.4rem;
+  font-family: "Lobster", cursive;
+}
+
+.beer-icon {
+  padding: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.5rem;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+.search-form {
+  width: 41rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.city-input {
+  font-size: 1.6rem;
+  margin-right: 0.5rem;
+  width: 24rem;
+  height: 4rem;
+  border-radius: 20px;
+  padding-left: 1.6rem;
+}
+
+.city-input-btn {
+  font-size: 1.6rem;
+  width: 16rem;
+  height: 4.8rem;
+  border-radius: 20rem;
+  border: none;
+  background-color: orangered;
+  color: white;
+  transition: 200ms;
+}
+
+.city-input-btn:hover {
+  cursor: pointer;
+  background-color: black;
+  color: orangered;
+}
+
+.menu {
+  width: 32rem;
+  height: 100%;
+  text-align: center;
+}
+
+.favorites-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.star-icon {
+  height: 3.2rem;
+  fill: orangered;
+}
+
+.favorites-container {
+  display: flex;
+  width: 40rem;
+  background-color: red;
+}
+
+.favorites-title {
+  color: orangered;
+}
+
+.hidden {
+  display: none;
+}
+
+/* @media (max-width: 60em) {
+  .nav {
+    width: 100%;
+    height: 15;
+  }
+} */
+
+@media (max-width: 42em) {
+  .nav {
+    width: 100%;
+    display: flex;
+  }
+}
+
+@media (max-width: 30em) {
+  .nav {
+    height: 15rem;
+  }
+
+  .nav-search {
+      margin-top: 0;
+      flex-direction: column;
+  }
+
+  .logo-container {
+  margin-bottom: 1rem;
+}
+}

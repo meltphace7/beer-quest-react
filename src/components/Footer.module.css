@@ -1,0 +1,35 @@
+.footer {
+    width: 80%;
+    height: 8rem;
+     background-color: rgb(230, 229, 229);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo-container {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+  margin-left: 0.4rem;
+  font-family: "Lobster", cursive;
+  margin: 0 2rem;
+}
+
+.beer-icon {
+  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: .5rem;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+@media (max-width: 60em) {
+  .footer {
+    width: 100%;
+  }
+}
