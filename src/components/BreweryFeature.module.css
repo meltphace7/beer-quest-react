@@ -69,7 +69,9 @@
 .favorites-btn {
   font-size: 1.6rem;
   background-color: black;
-  color: orangered;
+  color: white;
+  padding: .25rem;
+  background-color: orangered;
   border: 1px solid orangered;
   border-radius: 5px;
   margin-bottom: 1rem;
@@ -77,7 +79,8 @@
 
 .favorites-btn:hover {
   cursor: pointer;
-  color: white;
+  color: orangered;
+  background-color: white;
   border: 1px solid white;
 }
 

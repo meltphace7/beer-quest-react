@@ -4,6 +4,7 @@ import classes from "./BreweryListItem.module.css";
 const BreweryListItem = (props) => {
   const idHandler = function() {
     props.getBrewery(props.id);
+    window.scrollTo(0, 0);
   };
   return (
     <li onClick={idHandler} className={classes["brewery-list-item"]}>

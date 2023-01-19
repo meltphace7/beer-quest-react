@@ -103,7 +103,7 @@ const BreweryFeature = (props) => {
               >
                 {!breweryIsFavorited
                   ? "Add To Favorites"
-                  : "remove from Favorites"}
+                  : "Remove From Favorites"}
               </button>
               <p>{type}</p>
               <p>{phoneNumber}</p>
