@@ -107,7 +107,12 @@ const BreweryFeature = (props) => {
               </button>
               <p>{type}</p>
               <p>{phoneNumber}</p>
-              <p>{address}</p>
+              <a
+                className={classes["address-link"]}
+                href={`https://www.google.com/maps/search/?api=1&query=${address}`}
+                target="_blank"
+                rel="noreferrer"
+              >{`${address}`}</a>
               <a className={classes["website"]} href={website}>
                 {website}
               </a>

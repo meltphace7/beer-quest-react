@@ -46,6 +46,16 @@
   margin-bottom: 1rem;
 }
 
+.address-link {
+  color: orangered;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.address-link:hover {
+  color: white;
+}
+
 .brewery-info {
   width: 100%;
   color: white;
