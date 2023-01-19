@@ -44,6 +44,10 @@ button {
   font-size: 1.6rem;
 }
 
+input {
+  border: unset;
+}
+
 input[type='text'],
 input[type='number'],
 textarea {

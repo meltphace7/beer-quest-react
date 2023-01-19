@@ -118,7 +118,12 @@ const BreweryFeature = (props) => {
                 target="_blank"
                 rel="noreferrer"
               >{`${address}`}</a>
-              <a className={classes["website"]} href={website}>
+              <a
+                className={classes["website"]}
+                href={website}
+                target="_blank"
+                rel="noreferrer"
+              >
                 {website}
               </a>
             </div>
