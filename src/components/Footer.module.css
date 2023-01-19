@@ -31,5 +31,7 @@
 @media (max-width: 60em) {
   .footer {
     width: 100%;
+
+    /* height: 40rem; */
   }
 }
