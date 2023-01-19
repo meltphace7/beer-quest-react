@@ -40,21 +40,23 @@ function App() {
   console.log(`APP RENDER`);
   return (
     <div className="App">
-      <Navigation
-        onCityNameSubmit={loadSearchResults}
-        onFavoriteSelect={getBrewery}
-      />
-      <MobileNavigation
-        onCityNameSubmit={loadSearchResults}
-        onFavoriteSelect={getBrewery}
-      />
-      <Body
-        onCityNameSubmit={loadSearchResults}
-        onBrewerySelect={getBrewery}
-        breweries={breweries}
-        brewery={breweryData}
-      />
-      <Footer />
+      <div className="App-body">
+        <Navigation
+          onCityNameSubmit={loadSearchResults}
+          onFavoriteSelect={getBrewery}
+        />
+        <MobileNavigation
+          onCityNameSubmit={loadSearchResults}
+          onFavoriteSelect={getBrewery}
+        />
+        <Body
+          onCityNameSubmit={loadSearchResults}
+          onBrewerySelect={getBrewery}
+          breweries={breweries}
+          brewery={breweryData}
+        />
+        <Footer />
+      </div>
     </div>
   );
 }

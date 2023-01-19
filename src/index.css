@@ -19,7 +19,7 @@ p {
   font-size: 1.6rem;
 }
 
-@media (max-width: 65em) {
+@media (max-width: 69em) {
   html {
     font-size: 55%;
   }

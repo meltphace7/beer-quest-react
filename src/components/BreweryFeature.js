@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import BrewContext from '../store/brew-context'
 import classes from './BreweryFeature.module.css'
-// import StarIcon from '../assets/star.svg';
+import StarIcon from '../assets/star.svg';
 
 const BreweryFeature = (props) => {
   const [breweryIsDefined, setBreweryIsDefined] = useState(1);
@@ -94,6 +94,11 @@ const BreweryFeature = (props) => {
         {breweryIsDefined === 2 ? (
           <div className={classes["brewery-main"]}>
             <div className={classes["brewery-main-info"]}>
+              <div className={classes["star-container"]}>
+                {breweryIsFavorited && (
+                  <img className={classes["star-icon"]} src={StarIcon} />
+                )}
+              </div>
               <a href={website}>
                 <h1>{breweryName}</h1>
               </a>

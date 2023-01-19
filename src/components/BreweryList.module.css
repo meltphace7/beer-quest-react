@@ -16,7 +16,7 @@
 .pagination {
   width: 100%;
   background-color: rgb(244, 242, 242);
-  min-height: 5rem;
+  min-height: 10rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
