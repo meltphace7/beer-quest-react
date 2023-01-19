@@ -17,7 +17,6 @@ const getBreweryHandler = function(id) {
   props.breweryID(id)
 }
 
-
 const prevPageHandler = function() {
   if (pageNum === 1) {
     return
