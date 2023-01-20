@@ -112,9 +112,9 @@
 @media (max-width: 60em) {
   .brewery-main-info {
     font-size: 2rem;
-    padding: 6rem 0;
+    padding: 3rem 0;
     width: 95%;
-    min-height: 35rem;
+    min-height: 30rem;
     border-radius: 20px;
     background-color: black;
     color: white;

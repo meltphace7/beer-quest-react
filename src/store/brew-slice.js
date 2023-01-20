@@ -11,8 +11,7 @@ const brewSlice = createSlice({
   initialState: initialBrewState,
   reducers: {
     setQuery(state, action) {
-          const query = action.payload;
-          console.log('QUERY', query)
+      const query = action.payload;
       state.currentQuery = query;
     },
     setPage(state, action) {
@@ -20,11 +19,10 @@ const brewSlice = createSlice({
       state.currentPage = page;
     },
     setFavorites(state, action) {
-        state.favorites = action.payload;
+      state.favorites = action.payload;
     },
-      toggleFavorite(state, action) {
-          const faves = state.favorites;
-  
+    toggleFavorite(state, action) {
+      const faves = state.favorites;
     },
   },
 });

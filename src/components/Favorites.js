@@ -1,12 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import classes from './Favorites.module.css'
 import FavoritesListItem from './FavoritesListItem';
 import { useSelector } from 'react-redux';
-// import BrewContext from '../store/brew-context'
 
 const Favorites = (props) => {
   const favorites = useSelector(state => state.brew.favorites);
-  // const ctx = useContext(BrewContext)
 
   const getBreweryHandler = function(id) {
     props.breweryID(id)

@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
-// import BrewContext from '../store/brew-context'
+import React, { useState, useEffect } from 'react'
 import classes from './BreweryFeature.module.css'
 import StarIcon from '../assets/star.svg';
 import { useSelector, useDispatch } from 'react-redux';
@@ -7,7 +6,7 @@ import {brewActions} from '../store/brew-slice'
 
 const BreweryFeature = (props) => {
   const userFavorites = useSelector(state => state.brew.favorites);
-  console.log('redux faves', userFavorites)
+
   const dispatch = useDispatch();
 
   const [breweryIsDefined, setBreweryIsDefined] = useState(1);

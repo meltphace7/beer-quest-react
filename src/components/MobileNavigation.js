@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./MobileNavigation.module.css";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import Favorites from "./Favorites";
 import BeerIcon from "../assets/beer (1).svg";
 import StarIcon from "../assets/star.svg";

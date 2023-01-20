@@ -5,16 +5,13 @@ import BreweryFeature from './BreweryFeature'
 
 const Body = (props) => {
 
-  const pageChangeHandler = function() {
-    props.onCityNameSubmit()
-  }
 
     return (
       <div className={classes.body}>
         <BreweryList
-          onPageChange={props.onPageChange}
           breweryID={props.onBrewerySelect}
           breweries={props.breweries}
+          fetchAfterPageChange={props.fetchAfterPageChange}
         />
         <BreweryFeature breweries={props.breweries} brewery={props.brewery} />
       </div>
