@@ -1,42 +1,42 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import classes from './BreweryList.module.css'
 import BreweryListItem from './BreweryListItem'
-import BrewContext from '../store/brew-context'
+import { useDispatch, useSelector } from 'react-redux';
+import {brewActions} from '../store/brew-slice'
 
 const BreweryList = (props) => {
-  const ctx = useContext(BrewContext)
-  const [pageNum, setPageNum] = useState(ctx.page);
+  const dispatch = useDispatch();
 
-  // TEST
-  ctx.page = pageNum;
+  const [page, setPage] = useState(1);
+
+  //
   useEffect(() => {
-    setPageNum(1)
-  }, [ctx.query])
+    props.onPageChange(page);
+  }, [page])
+
+  console.log('pagination', page)
+  
+  //
 
 const getBreweryHandler = function(id) {
   props.breweryID(id)
 }
 
 const prevPageHandler = function() {
-  if (pageNum === 1) {
-    return
+  if (page === 1) {
+    return;
   } else {
-    ctx.page--
-    setPageNum((prevState) => prevState - 1)
-    props.onPageChange(ctx.page)
-    console.log(ctx);
+    setPage((prevstate) => {
+      return prevstate - 1;
+    });
   }
 }
 
 const nextPageHandler = function() {
-  ctx.page++;
-  // setPageNum(ctx.page);
-  setPageNum((prevState) => prevState + 1)
-  props.onPageChange(ctx.page)
-  console.log(ctx);
+  setPage((prevstate) => {
+    return prevstate + 1;
+  });
 }
-
-
     return (
       <div className={classes["list-container"]}>
         <ul className={classes["brewery-list"]}>
@@ -53,7 +53,7 @@ const nextPageHandler = function() {
         </ul>
         <div className={classes.pagination}>
           <div className={classes["prev-btn-container"]}>
-            {pageNum !== 1 && (
+            {page !== 1 && (
               <button
                 onClick={prevPageHandler}
                 className={classes["prev-page"]}
@@ -62,7 +62,7 @@ const nextPageHandler = function() {
               </button>
             )}
           </div>
-          <h3>Page {pageNum}</h3>
+          <h3>Page {page}</h3>
           <button onClick={nextPageHandler} className={classes["next-page"]}>
             Next
           </button>

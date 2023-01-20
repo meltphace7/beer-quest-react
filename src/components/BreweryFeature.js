@@ -1,42 +1,57 @@
 import React, { useState, useEffect, useContext } from 'react'
-import BrewContext from '../store/brew-context'
+// import BrewContext from '../store/brew-context'
 import classes from './BreweryFeature.module.css'
 import StarIcon from '../assets/star.svg';
+import { useSelector, useDispatch } from 'react-redux';
+import {brewActions} from '../store/brew-slice'
 
 const BreweryFeature = (props) => {
+  const userFavorites = useSelector(state => state.brew.favorites);
+  const dispatch = useDispatch();
+
   const [breweryIsDefined, setBreweryIsDefined] = useState(1);
   const [breweryIsFavorited, setBreweryIsFavorited] = useState(false);
-  const ctx = useContext(BrewContext)
 
-  console.log('BREWERIES', props.breweries)
+  // const [favorites, setFavorites ]= useState([]);
+
+  // const localStorageFavorites = JSON.parse(localStorage.getItem('favorites'));
+
+  // if (localStorageFavorites) {
+  //   setFavorites(localStorageFavorites);
+  // }
+
+  // const ctx = useContext(BrewContext)
+
 
   useEffect(() => {
-    let isFavorite = ctx.favorites.find(brewery => brewery.id === props.brewery.id);
+    let isFavorite = userFavorites.find(brewery => brewery.id === props.brewery.id);
     if (isFavorite) {
       setBreweryIsFavorited(true)
     } else {
       setBreweryIsFavorited(false)
     }
-  }, [ctx.favorites, props.brewery.id])
+  }, [props.brewery.id])
 
 
-  const favoriteHandler = function() {
-    let isFavorite = ctx.favorites.find(brewery => brewery.id === props.brewery.id);
-    if(isFavorite) {
-      let newFavorites = ctx.favorites.filter(brewery => brewery.id !== props.brewery.id)
-      ctx.favorites = newFavorites;
-      setBreweryIsFavorited(false)
-      console.log(breweryIsFavorited);
-    } else {
-    ctx.favorites.push(props.brewery)
-    window.localStorage.setItem("favorites", JSON.stringify(ctx.favorites));
-    setBreweryIsFavorited(true)
-    console.log(breweryIsFavorited);
+  const favoriteHandler = function () {
+  dispatch(brewActions.toggleFavorite(props.brewery))
+//     let isFavorite = userFavorites.find(brewery => brewery.id === props.brewery.id);
+//     if(isFavorite) {
+//       let newFavorites = userFavorites.filter(brewery => brewery.id !== props.brewery.id)
+// dispatch(brewActions.setFavorites(newFavorites))
+     
+//       setBreweryIsFavorited(false)
+//       console.log(breweryIsFavorited);
+//     } else {
+//       dispatch(brewActions.setFavorites(props));
+//     // window.localStorage.setItem("favorites", JSON.stringify(ctx.favorites));
+//     setBreweryIsFavorited(true)
+//     console.log(breweryIsFavorited);
 
-    }
+//     }
   }
 
-  window.localStorage.setItem("favorites", JSON.stringify(ctx.favorites));
+  // window.localStorage.setItem("favorites", JSON.stringify(ctx.favorites));
 
   useEffect(() => {
     if (props.brewery.id === undefined) {

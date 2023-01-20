@@ -1,17 +1,16 @@
 import React from "react";
 import classes from "./MobileNavigation.module.css";
 import { useState, useContext } from "react";
-import BrewContext from "../store/brew-context";
 import Favorites from "./Favorites";
 import BeerIcon from "../assets/beer (1).svg";
 import StarIcon from "../assets/star.svg";
 
 const MobileNavigation = (props) => {
-  const ctx = useContext(BrewContext);
+  // const ctx = useContext(BrewContext);
 
   const [enteredCity, setEnteredCity] = useState("");
   const [showBookmarks, setShowBookmarks] = useState(false);
-  ctx.query = enteredCity;
+  // ctx.query = enteredCity;
 
   const onChangeHandler = function(e) {
     setEnteredCity(e.target.value);
@@ -20,8 +19,6 @@ const MobileNavigation = (props) => {
   const toggleBookmarksHandler = () => {
     setShowBookmarks((prevstate) => !prevstate);
   };
-
-  console.log("show books marks", showBookmarks);
 
   const submitHandler = function(e) {
     e.preventDefault();
