@@ -7,21 +7,20 @@ import {brewActions} from '../store/brew-slice'
 
 const BreweryFeature = (props) => {
   const userFavorites = useSelector(state => state.brew.favorites);
+  console.log('redux faves', userFavorites)
   const dispatch = useDispatch();
 
   const [breweryIsDefined, setBreweryIsDefined] = useState(1);
   const [breweryIsFavorited, setBreweryIsFavorited] = useState(false);
 
-  // const [favorites, setFavorites ]= useState([]);
-
-  // const localStorageFavorites = JSON.parse(localStorage.getItem('favorites'));
-
-  // if (localStorageFavorites) {
-  //   setFavorites(localStorageFavorites);
-  // }
-
-  // const ctx = useContext(BrewContext)
-
+  useEffect(() => {
+    const localFaves = JSON.parse(localStorage.getItem("favorites"));
+    if (!localFaves) return
+      const existingFave = localFaves.find(fave => fave.id === props.brewery.id);
+    if (existingFave) {
+      setBreweryIsFavorited(true);
+    }
+  }, [])
 
   useEffect(() => {
     let isFavorite = userFavorites.find(brewery => brewery.id === props.brewery.id);
@@ -34,21 +33,25 @@ const BreweryFeature = (props) => {
 
 
   const favoriteHandler = function () {
-  dispatch(brewActions.toggleFavorite(props.brewery))
-//     let isFavorite = userFavorites.find(brewery => brewery.id === props.brewery.id);
-//     if(isFavorite) {
-//       let newFavorites = userFavorites.filter(brewery => brewery.id !== props.brewery.id)
-// dispatch(brewActions.setFavorites(newFavorites))
-     
-//       setBreweryIsFavorited(false)
-//       console.log(breweryIsFavorited);
-//     } else {
-//       dispatch(brewActions.setFavorites(props));
-//     // window.localStorage.setItem("favorites", JSON.stringify(ctx.favorites));
-//     setBreweryIsFavorited(true)
-//     console.log(breweryIsFavorited);
-
-//     }
+    let favorites;
+    const localFaves = JSON.parse(localStorage.getItem('favorites'));
+    if (localFaves) {
+      favorites = localFaves
+    } else {
+      favorites = [];
+    }
+    const existingFavorite = favorites.find(fave => fave.id === props.brewery.id);
+    if (existingFavorite) {
+      const updatedFavorites = favorites.filter(fave => fave.id !== props.brewery.id);
+      favorites = updatedFavorites;
+      setBreweryIsFavorited(false);
+    } else {
+      favorites.push(props.brewery)
+      setBreweryIsFavorited(true)
+    }
+    console.log(favorites)
+    localStorage.setItem('favorites', JSON.stringify(favorites))
+    dispatch(brewActions.setFavorites(favorites))
   }
 
   // window.localStorage.setItem("favorites", JSON.stringify(ctx.favorites));

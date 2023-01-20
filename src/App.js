@@ -12,7 +12,13 @@ function App() {
   const brewQuery = useSelector(state => state.brew.currentQuery);
   const curPage = useSelector((state) => state.brew.currentPage);
   const userFavorites = useSelector((state) => state.brew.favorites);
-   console.log('app page', curPage);
+  console.log('app page', curPage);
+  
+  useEffect(() => {
+    const localFaves = JSON.parse(localStorage.getItem("favorites"));
+    if (!localFaves) return;
+    dispatch(brewActions.setFavorites(localFaves))
+  }, [])
 
   // dispatch(brewActions.setFavorites());
 

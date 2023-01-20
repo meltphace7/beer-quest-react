@@ -19,33 +19,12 @@ const brewSlice = createSlice({
       const page = action.payload;
       state.currentPage = page;
     },
-    setFavorites(state) {
-      const localStorageFavorites = JSON.parse(
-        localStorage.getItem("favorites")
-      );
-      if (localStorageFavorites === "null") {
-        state.favorties = [];
-      } else {
-        state.favorties = localStorageFavorites;
-      }
+    setFavorites(state, action) {
+        state.favorites = action.payload;
     },
-    toggleFavorite(state, action) {
-      const brewery = action.payload;
-        console.log(brewery);
-        state.favorites = [brewery];
-        console.log(state.favorites)
-    //   const existingFavorite = state.favorites.find(
-    //     (fave) => fave.id === brewery.id
-    //   );
-    //   let updatedFavorites;
-    //   if (existingFavorite) {
-    //     updatedFavorites = state.favorites.filter(
-    //       (fave) => fave.id !== BreweryFeature.id
-    //     );
-    //   } else {
-    //     updatedFavorites = state.favorites.push(brewery);
-    //     state.favorites = updatedFavorites;
-    //   }
+      toggleFavorite(state, action) {
+          const faves = state.favorites;
+  
     },
   },
 });

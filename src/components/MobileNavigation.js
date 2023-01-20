@@ -4,17 +4,19 @@ import { useState, useContext } from "react";
 import Favorites from "./Favorites";
 import BeerIcon from "../assets/beer (1).svg";
 import StarIcon from "../assets/star.svg";
+import { useDispatch } from 'react-redux';
+import {brewActions} from '../store/brew-slice'
 
 const MobileNavigation = (props) => {
-  // const ctx = useContext(BrewContext);
+    const dispatch = useDispatch();
 
-  const [enteredCity, setEnteredCity] = useState("");
-  const [showBookmarks, setShowBookmarks] = useState(false);
-  // ctx.query = enteredCity;
+    const [enteredCity, setEnteredCity] = useState("");
+    const [showBookmarks, setShowBookmarks] = useState(false);
 
-  const onChangeHandler = function(e) {
-    setEnteredCity(e.target.value);
-  };
+    const onChangeHandler = function (e) {
+      setEnteredCity(e.target.value);
+      dispatch(brewActions.setQuery(e.target.value));
+    };
 
   const toggleBookmarksHandler = () => {
     setShowBookmarks((prevstate) => !prevstate);

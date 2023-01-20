@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 // import BrewContext from '../store/brew-context'
 
 const Favorites = (props) => {
+  const favorites = useSelector(state => state.brew.favorites);
   // const ctx = useContext(BrewContext)
 
   const getBreweryHandler = function(id) {
@@ -18,7 +19,7 @@ const Favorites = (props) => {
 
     return (
         <ul className={classes['favorites-list']}>
-          {/* {ctx.favorites.map(brewery => (
+          {favorites.map(brewery => (
             <FavoritesListItem
               closeMenu={closeMenuHandler}
               getBrewery={getBreweryHandler} 
@@ -28,7 +29,7 @@ const Favorites = (props) => {
               city={brewery.city}
               state={brewery.state}
               />
-          ))} */}
+          ))}
         </ul>
     )
 }
